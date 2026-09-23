@@ -1,0 +1,24 @@
+# LocalAgents Harness configuration — copy to config.yaml and edit. config.yaml is gitignored.
+name: localagents
+
+model:
+  # "ollama" | "openai" (also covers any OpenAI-compatible local server, e.g. LM Studio, vLLM,
+  # text-generation-webui — just point `host` at its base URL) | "bedrock" (uses AWS
+  # credentials/region instead of `host`) | "lmstudio_simple" (a non-OpenAI-compatible local
+  # endpoint: POST host {model, system_prompt, input} -> text — see
+  # localagents/models/lmstudio_simple.py).
+  provider: lmstudio_simple
+  model_id: qwen/qwen3.6-35b-a3b
+  host: http://localhost:1234/api/v1/chat
+  # Extra provider-specific kwargs passed straight through to the model class.
+  # lmstudio_simple accepts: temperature, max_output_tokens, response_field, timeout.
+  params:
+    temperature: 0.2
+    max_output_tokens: 4096
+    timeout: 300
+
+# Enables Strands' built-in hot-reload of tools from a ./tools/ directory relative to cwd.
+load_tools_from_directory: false
+
+# Local-first session persistence (Strands' FileSessionManager) — one folder per session id.
+sessions_dir: ./data/sessions

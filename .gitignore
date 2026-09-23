@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+.env.*
+
+# Local, per-machine config (secrets/endpoints) — commit config.example.yaml instead.
+config.yaml
+
+# Local session/memory data written at runtime.
+data/
+
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
