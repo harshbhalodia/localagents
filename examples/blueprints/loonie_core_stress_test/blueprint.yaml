@@ -1,0 +1,19 @@
+id: loonie.core_stress_test
+name: Loonie Core Stress Test
+version: 0.1.0
+publisher: Loonie (in-house)
+tier: free
+category: stress_test
+summary: >
+  Free, always-available stress test covering a rate shock, a temporary job loss, and a market
+  correction — reads your existing computed wealth analytics only, never raw transactions.
+entry: agent:run
+inputs:
+  - net_worth
+  - liquidity
+  - cashflow
+  - diversification
+tags:
+  - stress-test
+  - free
+  - in-house

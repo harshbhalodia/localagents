@@ -49,17 +49,40 @@ result = agent("What is the square root of 1764?")
 print(result)
 ```
 
+## Blueprint Marketplace
+
+`localagents.blueprints` packages agent logic (system prompts, scenario assumptions,
+orchestration) into versioned, distributable **blueprints** — free or paid, in-house or
+third-party (e.g. a bank's advisory team) — that plug into a `Harness` at runtime and always
+run on the user's own machine against their own already-computed data. See:
+
+- [docs/architecture/blueprint-marketplace.md](docs/architecture/blueprint-marketplace.md) —
+  full architecture, trust model, and the Loonie app-integration plan.
+- [docs/guides/onboarding-users.md](docs/guides/onboarding-users.md) — running a blueprint
+  against your own profile.
+- [docs/guides/publishing-a-blueprint.md](docs/guides/publishing-a-blueprint.md) — authoring and
+  publishing a new blueprint.
+
+```bash
+localagents blueprint init my_stress_test --id my.stress_test
+localagents blueprint validate my_stress_test
+localagents blueprint run examples/blueprints/loonie_core_stress_test --config config.yaml
+```
+
 ## Project layout
 
 ```
 localagents/
 ├── harness/    # YAML config loading + the Harness class that builds a strands.Agent
 ├── agents/     # Registry for reusable, named agent presets
+├── blueprints/ # Marketplace-ready blueprint manifest/license/loader/registry
 ├── models/     # Resolves config -> a real Strands model-provider instance (lazy imports)
 ├── tools/      # Re-exports Strands' @tool decorator
 ├── memory/     # Re-exports Strands' MemoryManager/MemoryStore + a build helper
-└── sessions/   # Local-first session persistence via Strands' FileSessionManager
-examples/       # Runnable example agent scripts
+├── sessions/   # Local-first session persistence via Strands' FileSessionManager
+└── cli.py      # `localagents` command-line entry point (blueprint init/validate/list/run)
+examples/       # Runnable example agent scripts + example blueprint packages
+docs/           # Architecture + onboarding/publishing guides
 tests/          # pytest suite
 ```
 

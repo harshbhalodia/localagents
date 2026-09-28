@@ -1,0 +1,25 @@
+id: maple_trust.advisory_stress_test
+name: Maple Trust Advisory Stress Test
+version: 0.1.0
+publisher: "Maple Trust Financial (fictional demo publisher)"
+tier: paid
+price_usd: 4.99
+category: stress_test
+summary: >
+  Fictional bank example blueprint demonstrating a premium, five-scenario advisory-desk stress
+  test (rate shock, job loss, market correction, inflation spike, income growth stall) with
+  bank-style framing. NOT a real financial institution or product — a demo of the marketplace's
+  paid, publisher-branded blueprint tier.
+entry: agent:run
+inputs:
+  - net_worth
+  - liquidity
+  - cashflow
+  - diversification
+  - goal_feasibility
+  - income_forecast
+tags:
+  - stress-test
+  - paid
+  - bank-partner-demo
+homepage: "https://example.invalid/maple-trust-advisory-stress-test"

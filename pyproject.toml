@@ -35,6 +35,9 @@ dev = ["pytest>=8.0", "ruff>=0.6"]
 Homepage = "https://github.com/harshbhalodia/localagents"
 Issues = "https://github.com/harshbhalodia/localagents/issues"
 
+[project.scripts]
+localagents = "localagents.cli:main"
+
 [tool.hatch.build.targets.wheel]
 packages = ["localagents"]
 
