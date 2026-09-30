@@ -49,6 +49,20 @@ result = agent("What is the square root of 1764?")
 print(result)
 ```
 
+## Build an advisor and ship it to Loonie
+
+An **advisor pack** is one YAML file: a name, the phrases that should trigger it, the data it may
+read and the scenarios it analyses. Loonie loads packs from a folder, so publishing is a copy.
+
+```bash
+localagents advisor init job_loss.yaml --publisher "Acme Co"   # starter pack
+localagents advisor validate job_loss.yaml                     # errors + tips
+localagents advisor publish job_loss.yaml --to loonie          # ship it
+```
+
+Ask Loonie's Pilot one of the pack's example questions and it is used, after the person agrees to
+share the listed data. Use `--dir` to publish into any advisors folder (for example a dev checkout).
+
 ## Blueprint Marketplace
 
 `localagents.blueprints` packages agent logic (system prompts, scenario assumptions,
@@ -80,7 +94,8 @@ localagents/
 ├── tools/      # Re-exports Strands' @tool decorator
 ├── memory/     # Re-exports Strands' MemoryManager/MemoryStore + a build helper
 ├── sessions/   # Local-first session persistence via Strands' FileSessionManager
-└── cli.py      # `localagents` command-line entry point (blueprint init/validate/list/run)
+├── advisors/   # Advisor packs: format, validator, publish targets (Loonie)
+└── cli.py      # `localagents` command-line entry point (advisor …, blueprint …)
 examples/       # Runnable example agent scripts + example blueprint packages
 docs/           # Architecture + onboarding/publishing guides
 tests/          # pytest suite

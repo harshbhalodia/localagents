@@ -9,6 +9,6 @@ from localagents.harness.config import HarnessConfig, ModelConfig, load_config
 from localagents.harness.core import Harness
 from localagents.tools import tool
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = ["Harness", "HarnessConfig", "ModelConfig", "__version__", "load_config", "tool"]

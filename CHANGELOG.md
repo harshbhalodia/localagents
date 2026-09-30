@@ -7,8 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-29
+
 ### Added
 
+- `localagents advisor init/validate/publish/list` and the `localagents.advisors` package: build an
+  advisor pack (a plain-YAML stress test, plan or decision aid), get validation errors and tips,
+  and publish it to an app. Loonie is the first target; packs are data, never code, and a pack
+  that validates here loads in Loonie.
 - `localagents.blueprints` — a marketplace-ready package format for distributable agent logic:
   `BlueprintManifest`/`load_manifest` (blueprint.yaml parsing + validation), `LocalRegistry`/
   `load_catalog` (installed-blueprint discovery + marketplace catalog parsing), `load_blueprint`
